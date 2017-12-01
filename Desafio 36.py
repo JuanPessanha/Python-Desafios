@@ -1,6 +1,6 @@
 valor = float(input('Qual é o valor do imóvel desejado? R$'))
 salaraio = float(input('Qual é o seu salário atual? R$'))
-anos = int(input('Em quantos anos pretende pagar? '))
+anos = float(input('Em quantos anos pretende pagar? '))
 prestação = valor / anos / 12
 meses = anos * 12
 
