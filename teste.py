@@ -1,7 +1,6 @@
 import docker
 
 client = docker.from_env()
-
 loop = 1
 
 
@@ -28,7 +27,7 @@ while loop != 0:
 
     def executar():
         if 'exec' in comando:
-            container.exec_run(cmd=True)
+            container.exec_run(cmd=str)
      
     def fechar():
         if comando == 'exit':
