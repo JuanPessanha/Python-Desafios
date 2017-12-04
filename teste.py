@@ -1,29 +1,34 @@
-import subprocess
+import docker
+
+client = docker.from_env()
+
 loop = 1
 
 
 while loop != 0:
     comando = input('>>> ').lower().strip().split()
-
+    container = client.containers.get(comando[1])
 
     def start():
-        if 'start' in comando[0]:
+        if 'start' in comando:
             if '-t' in comando[1]:
-                print('tempo')
+                container1 = client.containers.get(comando[3])
+                container1.start()
+                container1.stop(timeout=int(comando[2]))
             else:
-                subprocess.call('hostname')
+                container.start()
 
     def stop():
         if 'stop' in comando:
-            print('Olha no que deu')
+            container.stop()
 
     def status():
         if 'status' in comando:
-            print('status')
+            container.stats()
 
     def executar():
         if 'exec' in comando:
-            print('Digite seu comandinho')
+            container.exec_run(cmd=True)
      
     def fechar():
         if comando == 'exit':
