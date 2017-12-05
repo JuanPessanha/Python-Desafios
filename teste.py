@@ -1,6 +1,6 @@
-import docker
+from docker import from_env
 
-client = docker.from_env()
+client = from_env()
 loop = 1
 
 
@@ -23,11 +23,11 @@ while loop != 0:
 
     def status():
         if 'status' in comando:
-            container.stats()
+            container.status()
 
     def executar():
         if 'exec' in comando:
-            container.exec_run(cmd=str)
+            container.exec_run(cmd=str, stdout=True, stderr=True)
      
     def fechar():
         if comando == 'exit':
