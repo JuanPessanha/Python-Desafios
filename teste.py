@@ -27,7 +27,7 @@ while loop != 0:
 
     def executar():
         if 'exec' in comando:
-            container.exec_run(cmd=str, stdout=True, stderr=True)
+            container.exec_run(cmd=comando[2], stdout=True)
      
     def fechar():
         if comando == 'exit':
